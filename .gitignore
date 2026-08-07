@@ -1,0 +1,113 @@
+# ==========================
+# Node.js / React / Vite
+# ==========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# npm/yarn/pnpm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================
+# Python
+# ==========================
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/**/*.py[cod]
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/htmlcov/
+
+# ==========================
+# Environment Variables
+# ==========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+
+# Keep example env file
+!.env.example
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+
+# ==========================
+# Python Build
+# ==========================
+*.egg-info/
+build/
+dist/
+pip-wheel-metadata/
+
+# ==========================
+# SQLite
+# ==========================
+*.db
+*.sqlite3
+
+# ==========================
+# PyCharm
+# ==========================
+.idea/
+
+# ==========================
+# Docker
+# ==========================
+*.pid
+
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ==========================
+# Tesseract OCR Output
+# ==========================
+*.txt
+
+# ==========================
+# Uploads (if generated)
+# ==========================
+uploads/
+media/
+
+# ==========================
+# Coverage
+# ==========================
+.coverage
+coverage/
+
+# ==========================
+# Cache
+# ==========================
+.cache/
