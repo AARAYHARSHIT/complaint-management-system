@@ -2,10 +2,29 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateFormData, resetForm } from '../features/complaintSlice';
 
+const formatForDateInput = (dateString) => {
+  if (!dateString) return '';
+  
+  // If the date is already in YYYY-MM-DD format, return it
+  if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) return dateString;
+
+  const date = new Date(dateString);
+  
+  // If the date is invalid, return an empty string to prevent crashes
+  if (isNaN(date.getTime())) return ''; 
+  
+  // Extract local year, month, and day to prevent timezone shift bugs
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
+};
+
 const ComplaintForm = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.complaint.formData);
-
+  console.log(formData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormData({ [name]: value }));
@@ -63,15 +82,15 @@ const ComplaintForm = () => {
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block text-gray-700 font-medium mb-1">Mfg Date</label>
-            <input type="date" name="manufacturing_date" value={formData.manufacturing_date || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            <input type="date" name="manufacturing_date" value={formatForDateInput(formData.manufacturing_date) || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
           </div>
           <div>
             <label className="block text-gray-700 font-medium mb-1">Exp Date</label>
-            <input type="date" name="expiry_date" value={formData.expiry_date || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            <input type="date" name="expiry_date" value={formatForDateInput(formData.expiry_date) || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
           </div>
           <div>
             <label className="block text-gray-700 font-medium mb-1">Complaint Date</label>
-            <input type="date" name="complaint_date" value={formData.complaint_date || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            <input type="date" name="complaint_date" value={formatForDateInput(formData.complaint_date) || ''} onChange={handleChange} className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
           </div>
         </div>
 

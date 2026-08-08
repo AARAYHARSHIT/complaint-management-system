@@ -8,7 +8,7 @@ load_dotenv()
 
 SQLALCHEMY_DATABASE_URL = os.environ.get(
     "DATABASE_URL", 
-    "postgresql://postgres:postgres@db:5432/complaints_db"
+    "postgresql://postgres:postgres@db:5432/complaint_db"
 )
 
 print("DB URL =", os.environ.get("DATABASE_URL"))
