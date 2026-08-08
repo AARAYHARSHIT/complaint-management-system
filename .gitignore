@@ -110,3 +110,7 @@ coverage/
 # Cache
 # ==========================
 .cache/
+
+.venv/
+__pychcache__/
+*.pyc

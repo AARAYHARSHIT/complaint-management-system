@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from typing import TypedDict, Dict, Any, Optional
 from langgraph.graph import StateGraph, END
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
@@ -21,7 +23,7 @@ class AgentState(TypedDict):
 
 # Initialize the ChatGroq model
 llm = ChatGroq(
-    model="gemma2-9b-it",
+    model="llama-3.3-70b-versatile",
     api_key=os.environ.get("GROQ_API_KEY", ""),
     temperature=0
 )
