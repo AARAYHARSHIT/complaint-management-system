@@ -38,7 +38,7 @@ AI:
 
 cd backend
 
-python -m venv .venv
+py -m venv .venv
 
 .venv\Scripts\activate
 
